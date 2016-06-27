@@ -1,0 +1,42 @@
+<div class="col-md-offset-1 col-md-10" >
+    <form>
+        <fieldset class="form-group">
+            <label for="exampleInputEmail1">Blog title</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter blog title" ng-model="blogData.blog_title">
+            <small class="text-muted">Your Blog title goes here</small>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label for="exampleSelect1">Select Category</label>
+            <select class="form-control" id="exampleSelect1" ng-model="blogData.category_id">
+                <option ng-repeat="x in categories" value="{{x.category_id}}">{{x.category_name}}</option>
+            </select>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label for="exampleTextarea">Blog body</label>
+            <textarea class="form-control" id="exampleTextarea" rows="15" ng-model="blogData.blog_body"></textarea>
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="exampleInputFile">Image</label>
+            <input type="file" class="form-control-file" id="exampleInputFile">
+            <small class="text-muted"> This image will come at the top of your blog.</small>
+        </fieldset>
+
+        <button type="submit" ng-click="addBlog()"class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+
+
+<style>
+
+    .mCard{
+        background: grey; padding:30px;
+        margin:40px;
+        border-radius:2px;
+        box-shadow: 2px 2px black;
+    }
+
+</style>

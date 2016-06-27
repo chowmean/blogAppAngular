@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="card col-md-3 mCard" ng-repeat="x in blogData">
+        <div class="card-block">
+            <img class="card-img-top" src="{{url+x.image_path}}" alt="Card image cap" style="position:relative;width:100%;height:30%;object-fit: cover;">
+            <h4 class="card-title">{{x.blog_title}}</h4>
+            <h6 class="card-title">{{x.category_name}}</h6>
+            <h6 class="card-title">{{x.email}}</h6>
+            <h6 class="card-title">{{x.creation_date}}</h6>
+            <p class="card-text">{{ x.blog_body | limitTo: 20 }}{{x.blog_body.length > 20 ? '...' : ''}}</p>
+        </div>
+
+        <div class="card-block">
+            <a href="#!reviewBlog/{{x.blog_id}}/{{x.blog_title.replace(' ','_');}}"  class="btn btn-primary card-link pull-right" >View Blog</a>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+<style>
+
+    .mCard{
+        background: grey; padding:30px;
+        margin:40px;
+        border-radius:2px;
+        box-shadow: 2px 2px black;
+    }
+
+</style>

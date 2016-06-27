@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="card col-md-11 mCard" >
+        <div class="card-block">
+            <img class="card-img-top" src="{{url+blogData.image_path}}" alt="Card image cap" style="position:relative;width:100%;height:30%;object-fit: cover;">
+            <center><h4 class="card-title">{{blogData.blog_title}}</h4>
+            <h6 class="card-title">{{blogData.category_name}}</h6>
+            <h6 class="card-title">{{blogData.email}}</h6>
+            <h6 class="card-title">{{blogData.creation_date}}</h6></center>
+            <p class="card-text">{{ blogData.blog_body}}</p>
+        </div>
+
+        <div class="card-block">
+            <a href="#" ng-if="isAdmin()==true" class="btn btn-primary card-link pull-right">Publish Blog</a>
+            <a href="#" ng-if="isAdmin()==true" class="btn btn-danger card-link">Reject Blog</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+
+    .mCard{
+        background: #F1f1f1; padding:30px;
+        margin:40px;
+        border-radius:2px;
+        box-shadow: 2px 2px black;
+    }
+
+</style>
