@@ -9,9 +9,9 @@
             <p class="card-text">{{ blogData.blog_body}}</p>
         </div>
 
-        <div class="card-block">
-            <a href="#" ng-if="isAdmin()==true" class="btn btn-primary card-link pull-right">Publish Blog</a>
-            <a href="#" ng-if="isAdmin()==true" class="btn btn-danger card-link">Reject Blog</a>
+        <div class="card-block" ng-if="isAdmin()==true">
+            <a href="" ng-if="blogData.published==0 " ng-click="publish()" class="btn btn-primary card-link pull-right">Publish Blog</a>
+            <a href="" ng-if="blogData.published==1" ng-click="rejectBlog()" class="btn btn-danger card-link">Reject Blog</a>
         </div>
     </div>
 </div>

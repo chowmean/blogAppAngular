@@ -13,7 +13,8 @@ angular.module('myApp', [
   'myApp.version',
   'myApp.dashboard',
   'myApp.writeBlog',
-  //'ngToast'
+  'myApp.users',
+//  'ngToast'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.dashboard', ['ngRoute'])
+angular.module('myApp.users', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/users', {

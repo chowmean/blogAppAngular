@@ -25,7 +25,8 @@ angular.module('myApp.viewBlog', ['ngRoute'])
         ).success( function( data )
         {
             $scope.blogData=data;
-            console.log($scope.blogData)
+            console.log($scope.blogData);
+           
         })
             .error( function( data)
             {
