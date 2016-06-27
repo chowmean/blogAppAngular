@@ -1,1 +1,27 @@
-sers
+<div>
+
+    <div class="table-responsive col-md-12">
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <td>User ID</td>
+                <td>Username</td>
+                <td>Email</td>
+                <td>Active</td>
+
+            </tr>
+        </thead>
+        <tr ng-repeat="x in userData">
+            <td>{{ x.user_id }}</td>
+            <td>{{ x.username }}</td>
+            <td>{{ x.email }}</td>
+            <td>{{ x.active }}</td>
+            <td ng-if="x.active===1"><button ng-click="deactivate(x.user_id)" class="btn btn-danger " >Deactivate</button></td>
+            <td ng-if="x.active===0"><button ng-click="activate(x.user_id)" class="btn btn-primary " >Activate</button></td>
+        </tr>
+    </table>
+    </div>
+
+</div>
+
+
