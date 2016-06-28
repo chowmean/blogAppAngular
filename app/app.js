@@ -18,8 +18,23 @@ angular.module('myApp', [
   'toastr'
 //  'ngToast'
 ]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+config(['$locationProvider', '$routeProvider','$httpProvider', function($locationProvider, $routeProvider,$httpProvider) {
   $locationProvider.hashPrefix('!');
+
+
+  $httpProvider.interceptors.push(function($q) {
+    return {
+      'request': function(config) {
+        $('#processing').show();
+        return config;
+      },
+
+      'response': function(response) {
+        $('#processing').hide();
+        return response;
+      }
+    };
+  });
 
   $routeProvider
       .otherwise({redirectTo: '/viewBlog'});

@@ -24,15 +24,19 @@
   <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.min.js"></script>
   <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
   <link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css" />
-<!--  <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-  <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-  <script src="bower_components/ngToast/dist/ngToast.min.js"></script>-->
+
 
 
 </head>
-<body ng-cloak >
+<body >
 <div ng-controller="loginController">
+
+  <div id="processing" style="display: none"><div class="sampleContainer">
+    <div id="loader">
+      <div id="box"></div>
+      <div id="hill"></div>
+    </div>
+  </div></div>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -152,3 +156,4 @@
 
 </body>
 </html>
+
