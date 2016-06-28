@@ -11,6 +11,11 @@ angular.module('myApp.writeBlog', ['ngRoute'])
 
     .controller('writeBlogCtrl', function($http,$scope,$window,toastr) {
 
+
+        if($window.localStorage.getItem('role')=='admin')
+        {
+            $window.location.href='#';
+        }
         $scope.url='http://54.191.251.207:8085/';
         $scope.categories={};
         $scope.blogData={};

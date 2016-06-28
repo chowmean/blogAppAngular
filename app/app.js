@@ -6,11 +6,8 @@ var baseUrl="http://54.191.251.207:8085/api";
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
   'myApp.viewBlog',
   'myApp.reviewBlog',
-  'myApp.version',
   'myApp.dashboard',
   'myApp.writeBlog',
   'myApp.users',

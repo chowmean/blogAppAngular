@@ -4,6 +4,7 @@
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
 <head>
+  <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" alt="QB">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Quick Blogger</title>
@@ -45,7 +46,7 @@
           <li ng-repeat="x in categories"><a href="#!categories/{{x.category_id}}/{{x.category_name}}">{{x.category_name}}</a></li>
         </ul>
       </li>
-      <li><a href="#!writeBlog">Write Blog?</a></li>
+      <li ng-if="checkAdmin()==false"><a href="#!writeBlog">Write Blog?</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li ng-if="checkLogin()==false"><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
@@ -140,16 +141,14 @@
   <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.min.js"></script>
   <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
   <script src="app.js"></script>
-  <script src="view2/view2.js"></script>
-  <script src="view1/view1.js"></script>
   <script src="viewBlog/viewBlog.js"></script>
   <script src="writeBlog/writeBlog.js"></script>
   <script src="reviewBlog/reviewBlog.js"></script>
   <script src="dashboard/dashboard.js"></script>
   <script src="users/users.js"></script>
-  <script src="components/version/version.js"></script>
+<!--  <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>-->
 
 </body>
 </html>
