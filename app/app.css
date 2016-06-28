@@ -235,3 +235,18 @@
   }
 }
 
+.mCard{
+  background: teal; padding:30px;
+  margin:40px;
+  border-radius:2px;
+  box-shadow: 2px 2px black;
+}
+
+
+.dCard{
+  background: #2F96B4;
+  border-radius:2px;
+  border:2px solid #f1f1f1;
+  padding:30px;
+  margin:30px;
+}
