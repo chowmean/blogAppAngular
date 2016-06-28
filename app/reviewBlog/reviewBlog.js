@@ -9,7 +9,7 @@ angular.module('myApp.reviewBlog', ['ngRoute'])
         });
     }])
 
-    .controller('reviewBlogCtrl',function($http,$scope,$window,$routeParams) {
+    .controller('reviewBlogCtrl',function($http,$scope,$window,$routeParams,toastr) {
 
         $scope.url='http://54.191.251.207:8085/';
         $scope.blogId=$routeParams.blogID;
@@ -48,9 +48,10 @@ angular.module('myApp.reviewBlog', ['ngRoute'])
                 data: $scope.blogData
             }).success(function(data){
                 $scope.getBlog();
+                toastr.info('Successfully Published', 'Publish');
 
             }).error(function(data){
-
+                toastr.error('Error publishing', 'Publish');
             })
         }
 
@@ -64,8 +65,9 @@ angular.module('myApp.reviewBlog', ['ngRoute'])
                 data: $scope.blogData
             }).success(function(data){
                 $scope.getBlog();
+                toastr.info('Successfully depublished', 'Depublish');
             }).error(function(data){
-
+                toastr.error('Error depublishing', 'Depublish');
             })
         }
 

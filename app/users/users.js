@@ -9,7 +9,7 @@ angular.module('myApp.users', ['ngRoute'])
         });
     }])
 
-    .controller('usersCtrl', function($scope,$http,$window) {
+    .controller('usersCtrl', function($scope,$http,$window,toastr) {
 
 
         $scope.getUsers=function() {
@@ -24,6 +24,7 @@ angular.module('myApp.users', ['ngRoute'])
             })
                 .error(function (data) {
                     console.log('error');
+                    toastr.error('Error getting user data', 'Users');
                 });
 
         }
@@ -39,10 +40,12 @@ angular.module('myApp.users', ['ngRoute'])
                 data: $scope.blogData
             }).success(function(data){
                 console.log(data);
+                toastr.info('User Activated Successfully.', 'Activation');
                 $scope.getUsers();
 
-            }).error(function(data){
 
+            }).error(function(data){
+                toastr.error('Activation Failed', 'Activation');
             })
         }
 
@@ -55,10 +58,11 @@ angular.module('myApp.users', ['ngRoute'])
                 data: $scope.blogData
             }).success(function(data){
                 console.log(data);
+                toastr.info('User Restricted Successfully.', 'Restriction');
                 $scope.getUsers();
 
             }).error(function(data){
-
+                toastr.error('Restriction Operation Failed', 'Restriction');
             })
 
         }

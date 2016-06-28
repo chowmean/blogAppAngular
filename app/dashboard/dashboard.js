@@ -9,7 +9,7 @@ angular.module('myApp.dashboard', ['ngRoute'])
         });
     }])
 
-    .controller('dashboardCtrl', function($http,$scope,$window) {
+    .controller('dashboardCtrl', function($http,$scope,$window,toastr) {
         $http({
                 method: 'GET',
                 url: baseUrl + '/accounts/users',
@@ -25,13 +25,27 @@ angular.module('myApp.dashboard', ['ngRoute'])
         })
             .error(function (data) {
                 console.log('error');
+                toastr.error('Error Getting data', 'Error');
             });
 
+        $scope.isAdmin = function()
+        {
+            if($window.localStorage.getItem('role')=='admin'){
+                return true;}
+            else{
+                return false;}
+        }
 
+
+        var url='/blogs';
+        if($scope.isAdmin()==false)
+        {
+            url=url+"?user_id="+$window.localStorage.getItem('user_id');
+        }
 
         $http({
             method: 'GET',
-            url: baseUrl + '/blogs',
+            url: baseUrl + url,
             headers: {'token': $window.localStorage.getItem('tokenData')}}
         ).success( function( data )
         {
@@ -44,5 +58,8 @@ angular.module('myApp.dashboard', ['ngRoute'])
             .error( function( data)
             {
                 console.log('error');
+                toastr.error('Error Getting data', 'Error');
             });
+
+
     });

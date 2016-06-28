@@ -9,7 +9,7 @@ angular.module('myApp.writeBlog', ['ngRoute'])
         });
     }])
 
-    .controller('writeBlogCtrl', function($http,$scope,$window) {
+    .controller('writeBlogCtrl', function($http,$scope,$window,toastr) {
 
         $scope.url='http://54.191.251.207:8085/';
         $scope.categories={};
@@ -60,16 +60,16 @@ angular.module('myApp.writeBlog', ['ngRoute'])
                     enctype:"multipart/form-data"
                 })
                     .success(function(){
-                        console.log('updated');
+                        toastr.info('Successfully created blog', 'Blog Created');
                         $window.location.href='#!viewBlog';
                     })
                     .error(function(){
-                        console.log('error');
+                        toastr.error('Error in uploading image', 'Error');
                     });
             })
                 .error( function( data)
                 {
-                    console.log('error');
+                    toastr.error('Error in creating blog.', 'Error');
                 });
         }
 

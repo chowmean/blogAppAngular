@@ -14,6 +14,8 @@ angular.module('myApp', [
   'myApp.dashboard',
   'myApp.writeBlog',
   'myApp.users',
+  'ngAnimate',
+  'toastr'
 //  'ngToast'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
@@ -33,7 +35,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     }
   };
 }).
-controller('loginController', function($scope,$window,$location,$http/*,ngToast*/) {
+controller('loginController', function($scope,$window,$location,$http,toastr/*,ngToast*/) {
 
   $scope.user=
   {
@@ -71,19 +73,26 @@ controller('loginController', function($scope,$window,$location,$http/*,ngToast*
   }
 
 
-  $http({
+  $scope.loadCat=function(){
+    $http({
     method: 'GET',
     url: baseUrl + '/blogs/categories',
     headers: {'token': $window.localStorage.getItem('tokenData')}}
   ).success( function( data )
   {
     $scope.categories=data;
+
+
   })
   .error( function( data)
   {
     console.log('Error loading categories');
+    toastr.error('Error loading categories', 'Category');
   });
+  }
 
+
+  $scope.loadCat();
 
   $scope.login=function()
   {
@@ -94,9 +103,13 @@ controller('loginController', function($scope,$window,$location,$http/*,ngToast*
           $window.localStorage.setItem('role',data.data.data[0].role);
           $window.localStorage.setItem('user_id',data.data.data[0].user_id);
           angular.element('#loginModal').modal('hide');
+          $window.location.href='#';
+          $scope.loadCat();
+          toastr.info('You are Logged In Succesfully.', 'Logged In');
           //ngToast.create('Login Successfull');
         }, function(){
           console.log('error');
+          toastr.error('Error Logging in .please try refreshing the page.', 'Error');
         });
   }
 
@@ -109,9 +122,10 @@ controller('loginController', function($scope,$window,$location,$http/*,ngToast*
         .then( function(data)
         {
           angular.element('#myModal').modal('hide');
+          toastr.info('Registered Succesfully.', 'Registration');
 
         }, function(){
-          console.log('error');
+          toastr.error('Error in registration. Please try again.', 'Error');
         });
   }
 
@@ -128,10 +142,13 @@ controller('loginController', function($scope,$window,$location,$http/*,ngToast*
           $window.localStorage.removeItem('tokenData');
           $window.localStorage.removeItem('role');
           $window.localStorage.removeItem('user_id');
+          toastr.info('Logged Out Succesfully.', 'Logout');
+
         })
      .error( function( data)
         {
           console.log('error');
+          toastr.error('Error in Logging out', 'Error');
         });
   }
 

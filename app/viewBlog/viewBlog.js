@@ -13,7 +13,7 @@ angular.module('myApp.viewBlog', ['ngRoute'])
             });
     }])
 
-    .controller('viewBlogCtrl', function($http,$scope,$window) {
+    .controller('viewBlogCtrl', function($http,$scope,$window,toastr) {
 
         $scope.url='http://54.191.251.207:8085/';
         $scope.blogData={};
@@ -26,11 +26,11 @@ angular.module('myApp.viewBlog', ['ngRoute'])
         {
             $scope.blogData=data;
             console.log($scope.blogData);
-           
+
         })
             .error( function( data)
             {
-                console.log('error');
+                toastr.error('Error getting blog data', 'Error');
             });
 
 
@@ -52,6 +52,7 @@ angular.module('myApp.viewBlog', ['ngRoute'])
             .error( function( data)
             {
                 console.log('error');
+                toastr.error('Error getting category data', 'Error');
             });
 
 

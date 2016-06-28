@@ -11,17 +11,17 @@
         Total Unpublished Blogs:  {{total_unpublished_blogs}}
     </div>
 
-    <div class="col-md-3 dCard">
+    <div ng-if="isAdmin()" class="col-md-3 dCard">
         Total Users: {{total_users}}
     </div>
 
 
-    <div class="col-md-3 dCard">
+    <div  ng-if="isAdmin()==true" class="col-md-3 dCard">
         Total Active Users: {{total_active_users}}
     </div>
 
 
-    <div class="col-md-3 dCard">
+    <div ng-if="isAdmin()==true" class="col-md-3 dCard">
         Total Restricted Users: {{total_inactive_users}}
     </div>
 </div>
