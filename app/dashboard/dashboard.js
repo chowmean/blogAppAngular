@@ -10,23 +10,37 @@ angular.module('myApp.dashboard', ['ngRoute'])
     }])
 
     .controller('dashboardCtrl', function($http,$scope,$window,toastr) {
-        $http({
-                method: 'GET',
-                url: baseUrl + '/accounts/users',
-                headers: {'token': $window.localStorage.getItem('tokenData')}
-            }
-        ).success(function (data) {
-            $scope.userData = data;
-            var as=$($scope.userData).filter(function (i,n){return n.active===1});
-            $scope.total_users=$scope.userData.length;
-            $scope.total_active_users=as.length;
-            $scope.total_inactive_users=$scope.userData.length - as.length;
 
-        })
-            .error(function (data) {
-                console.log('error');
-                toastr.error('Error Getting data', 'Error');
-            });
+        $scope.isAdmin = function()
+        {
+            if($window.localStorage.getItem('role')=='admin'){
+                return true;}
+            else{
+                return false;}
+        }
+
+
+        if($window.localStorage.getItem('role')=='admin') {
+            $http({
+                    method: 'GET',
+                    url: baseUrl + '/accounts/users',
+                    headers: {'token': $window.localStorage.getItem('tokenData')}
+                }
+            ).success(function (data) {
+                $scope.userData = data;
+                var as = $($scope.userData).filter(function (i, n) {
+                    return n.active === 1
+                });
+                $scope.total_users = $scope.userData.length;
+                $scope.total_active_users = as.length;
+                $scope.total_inactive_users = $scope.userData.length - as.length;
+
+            })
+                .error(function (data) {
+                    console.log('error');
+                    toastr.error('Error Getting data', 'Error');
+                });
+        }
 
         $scope.isAdmin = function()
         {
