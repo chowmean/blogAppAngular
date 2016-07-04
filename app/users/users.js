@@ -12,6 +12,7 @@ angular.module('myApp.users', ['ngRoute'])
     .controller('usersCtrl', function($scope,$http,$window,toastr) {
 
 
+        $scope.sortType='active';
         $scope.getUsers=function() {
             $http({
                     method: 'GET',

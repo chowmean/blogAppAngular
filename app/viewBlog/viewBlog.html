@@ -2,7 +2,7 @@
     <div class="card col-md-3 mCard" ng-repeat="x in blogData">
         <div class="card-block">
             <div style="position:relative;height:50%;width:100%;"><img src="{{url+x.image_path_small}}" width="100%" height="200px" style="object-fit:cover;"></div>
-            <h4 class="card-title">{{x.blog_title| limitTo: 20 }}{{x.blog_body.length > 20 ? '...' : ''}}</h4>
+            <h4 class="card-title">{{x.blog_title |limitTo: 20 }}{{x.blog_body.length > 20 ? '...' : ''}}</h4>
             <h6 class="card-title">{{x.category_name}}</h6>
             <h6 class="card-title">{{x.email}}</h6>
             <h6 class="card-title">{{x.creation_date}}</h6>
