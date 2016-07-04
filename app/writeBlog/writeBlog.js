@@ -82,7 +82,7 @@ angular.module('myApp.writeBlog', ['ngRoute'])
             })
                 .error( function( data)
                 {
-                    toastr.error('Error in creating blog.', 'Error');
+                    toastr.error('Please fill all the details. If thats not the problem server may be down', 'Error');
                 });
         }
 
