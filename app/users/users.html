@@ -1,3 +1,5 @@
+<div class="row col-md-offset-4"><div class="col-md-6"><input type="text" class="input searchClass" placeholder="Search" ng-model="searchQuery" /></div></div>
+
 <div class="col-md-10 col-md-offset-1 dCard" >
 
     <div class="table-responsive col-md-12">
@@ -14,7 +16,7 @@
 
             </thead>
         </thead>
-        <tr ng-repeat="x in userData  | orderBy:sortType">
+        <tr ng-repeat="x in userData  | orderBy:sortType | filter:searchQuery">
             <td>{{ x.user_id }}</td>
             <td>{{ x.username }}</td>
             <td>{{ x.email }}</td>
