@@ -11,6 +11,7 @@ angular.module('myApp.reviewBlog', ['ngRoute'])
 
     .controller('reviewBlogCtrl',function($http,$scope,$window,$routeParams,toastr) {
 
+        
         $scope.url='http://54.191.251.207:8085/';
         $scope.blogId=$routeParams.blogID;
 

@@ -12,6 +12,14 @@ angular.module('myApp.writeBlog', ['ngRoute'])
     .controller('writeBlogCtrl', function($http,$scope,$window,toastr) {
 
 
+        if(!$window.localStorage.getItem('tokenData'))
+        {
+            $window.location.href='#';
+        }
+        else {
+            console.log('asdsadas');
+        }
+
         if($window.localStorage.getItem('role')=='admin')
         {
             $window.location.href='#';
