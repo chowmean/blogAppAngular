@@ -1,17 +1,22 @@
+<div class="row col-md-offset-4"><div class="col-md-6"><input type="text" class="input searchClass" placeholder="Search" ng-model="searchQuery" /></div></div>
+
 <div class="col-md-10 col-md-offset-1 dCard" >
 
     <div class="table-responsive col-md-12">
     <table class="table table-stripped">
         <thead>
-            <tr>
-                <td>User ID</td>
-                <td>Username</td>
-                <td>Email</td>
-                <td>Active</td>
+            <thead style="background:#f2f2f2;">
 
-            </tr>
+                <td ng-click="sortType = 'user_id'"><span ng-hide="sortType == 'user_id'" class="fa fa-caret-down"></span>
+                    User ID</td>
+                <td ng-click="sortType = 'username'"><span ng-hide="sortType == 'username'" class="fa fa-caret-down"></span> Username</td>
+                <td ng-click="sortType = 'email'"><span ng-hide="sortType == 'email'" class="fa fa-caret-down"></span> Email</td>
+                <td ng-click="sortType = 'active'"><span ng-hide="sortType == 'active'" class="fa fa-caret-down"></span> Active</td>
+                <td ng-click="sortType = 'active'"> Operation</td>
+
+            </thead>
         </thead>
-        <tr ng-repeat="x in userData">
+        <tr ng-repeat="x in userData  | orderBy:sortType | filter:searchQuery">
             <td>{{ x.user_id }}</td>
             <td>{{ x.username }}</td>
             <td>{{ x.email }}</td>
