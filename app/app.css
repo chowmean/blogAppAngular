@@ -250,3 +250,11 @@
   padding:30px;
   margin:30px;
 }
+
+
+.navbar-custom {
+  color: grey;
+  background-color: black;
+  border-radius:0px;
+}
+

@@ -14,13 +14,18 @@ angular.module('myApp.viewBlog', ['ngRoute'])
     }])
 
     .controller('viewBlogCtrl', function($http,$scope,$window,toastr) {
-
+        console.log('asdas');
         $scope.url='http://54.191.251.207:8085/';
         $scope.blogData={};
+        $scope.blogUrl='/blogs/public';
+        if($window.localStorage.getItem('role')=='admin')
+        {
+            $scope.blogUrl='/blogs';
+        }
 
         $http({
             method: 'GET',
-            url: baseUrl + '/blogs',
+            url: baseUrl + $scope.blogUrl,
             headers: {'token': $window.localStorage.getItem('tokenData')}}
         ).success( function( data )
         {
@@ -32,9 +37,8 @@ angular.module('myApp.viewBlog', ['ngRoute'])
             {
                 toastr.error('Error getting blog data', 'Error');
             });
-
-
     })
+
     .controller('categoryCtrl', function($http,$scope,$window,$routeParams) {
 
         $scope.url='http://54.191.251.207:8085/';

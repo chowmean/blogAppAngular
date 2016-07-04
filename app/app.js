@@ -86,25 +86,27 @@ controller('loginController', function($scope,$window,$location,$http,toastr/*,n
 
 
   $scope.loadCat=function(){
+
+
     $http({
     method: 'GET',
     url: baseUrl + '/blogs/categories',
     headers: {'token': $window.localStorage.getItem('tokenData')}}
-  ).success( function( data )
-  {
-    $scope.categories=data;
+    ).success( function( data )
+    {
+      $scope.categories=data;
 
 
-  })
-  .error( function( data)
-  {
-    console.log('Error loading categories');
-    toastr.error('Error loading categories', 'Category');
-  });
+    })
+    .error( function( data) {
+      console.log('Error loading categories');
+      toastr.error('Error loading categories', 'Category');
+     });
+
   }
 
-
-  $scope.loadCat();
+  if($scope.checkLogin()==true){
+  $scope.loadCat();}
 
   $scope.login=function()
   {
