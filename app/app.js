@@ -123,7 +123,7 @@ controller('loginController', function($scope,$window,$location,$http,toastr/*,n
           //ngToast.create('Login Successfull');
         }, function(){
           console.log('error');
-          toastr.error('Error Logging in .please try refreshing the page.', 'Error');
+          toastr.error('Wrong username password.', 'Error');
         });
   }
 
