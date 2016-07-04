@@ -2,10 +2,13 @@
 <div class="col-md-offset-1 col-md-11 mCard" >
 
 
-    <form>
+    <form name="blogform">
         <fieldset class="form-group">
             <label for="exampleInputEmail1">Blog title</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter blog title" ng-model="blogData.blog_title">
+            <input type="text" class="form-control" id="exampleInputEmail1" name="title" placeholder="Enter blog title" ng-model="blogData.blog_title" required>
+            <span style="color:red" ng-show="blogform.title.$dirty && blogform.title.$invalid">
+              <span ng-show="blogform.title.$error.required">Title is required.</span>
+            </span>
             <small class="text-muted">Your Blog title goes here</small>
         </fieldset>
 
@@ -18,7 +21,10 @@
 
         <fieldset class="form-group">
             <label for="exampleTextarea">Blog body</label>
-            <textarea class="form-control" id="exampleTextarea" rows="15" ng-model="blogData.blog_body"></textarea>
+            <textarea class="form-control" id="exampleTextarea" name="body" rows="15" ng-model="blogData.blog_body" required></textarea>
+            <span style="color:red" ng-show="blogform.body.$dirty && blogform.body.$invalid">
+              <span ng-show="blogform.body.$error.required">Blog Body is required.</span>
+            </span>
         </fieldset>
         <fieldset class="form-group">
             <label for="exampleInputFile">Image</label>
@@ -26,7 +32,8 @@
             <small class="text-muted"> This image will come at the top of your blog.</small>
         </fieldset>
 
-        <button type="submit" ng-click="addBlog()"class="btn btn-primary">Submit</button>
+        <button type="submit" ng-click="addBlog()"class="btn btn-primary" ng-disabled="blogform.title.$dirty && blogform.title.$invalid ||
+blogform.body.$dirty && blogform.body.$invalid">Submit</button>
     </form>
 </div>
 
