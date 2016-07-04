@@ -14,6 +14,7 @@ angular.module('myApp.viewBlog', ['ngRoute'])
     }])
 
     .controller('viewBlogCtrl', function($http,$scope,$window,toastr) {
+        $scope.searchQuery=''
         console.log('asdas');
         $scope.url='http://54.191.251.207:8085/';
         $scope.blogData={};

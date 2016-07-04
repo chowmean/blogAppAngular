@@ -257,4 +257,10 @@
   background-color: black;
   border-radius:0px;
 }
+.searchClass{
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:2px solid grey;
+}
 
