@@ -11,11 +11,6 @@ angular.module('myApp.reviewBlog', ['ngRoute'])
 
 .controller('reviewBlogCtrl', function($http, $scope, $window, $routeParams, toastr) {
 
-if($window.localStorage.getItem('role'))
-{
-    $window.location.href='#';
-    toastr.info('Please login to view the blogs.', 'Login');
-}
 
     $scope.url = 'http://54.191.251.207:8085/';
     $scope.blogId = $routeParams.blogID;
@@ -32,7 +27,18 @@ if($window.localStorage.getItem('role'))
         }).error(function(data) {});
     };
 
-    $scope.getBlog();
+
+    if(!$window.localStorage.getItem('tokenData'))
+    {
+        $window.location.href='#';
+        toastr.info('Please login to view the blogs.', 'Login');
+
+    }
+    else {
+        $scope.getBlog();
+    }
+
+
 
 
     $scope.isAdmin = function() {
