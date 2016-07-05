@@ -56,7 +56,7 @@ angular.module('myApp.writeBlog', ['ngRoute'])
             }
             ).success( function( data )
             {
-
+                toastr.info('Creating Blog', 'Create Blog');
                 var formData = new FormData();
                 formData.append('blogImage', $('input[type=file]')[0].files[0]);
                 $.ajax({
