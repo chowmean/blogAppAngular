@@ -21,14 +21,12 @@ angular.module('myApp.users', ['ngRoute'])
                 }
             ).success(function (data) {
                 $scope.userData = data;
-                console.log($scope.userData)
             })
                 .error(function (data) {
-                    console.log('error');
                     toastr.error('Error getting user data', 'Users');
                 });
 
-        }
+        };
 
         $scope.getUsers();
 
@@ -40,7 +38,6 @@ angular.module('myApp.users', ['ngRoute'])
                 headers: {'token': $window.localStorage.getItem('tokenData')},
                 data: $scope.blogData
             }).success(function(data){
-                console.log(data);
                 toastr.info('User Activated Successfully.', 'Activation');
                 $scope.getUsers();
 
@@ -48,7 +45,7 @@ angular.module('myApp.users', ['ngRoute'])
             }).error(function(data){
                 toastr.error('Activation Failed', 'Activation');
             })
-        }
+        };
 
         $scope.deactivate=function(userId)
         {
@@ -58,7 +55,6 @@ angular.module('myApp.users', ['ngRoute'])
                 headers: {'token': $window.localStorage.getItem('tokenData')},
                 data: $scope.blogData
             }).success(function(data){
-                console.log(data);
                 toastr.info('User Restricted Successfully.', 'Restriction');
                 $scope.getUsers();
 
@@ -66,5 +62,5 @@ angular.module('myApp.users', ['ngRoute'])
                 toastr.error('Restriction Operation Failed', 'Restriction');
             })
 
-        }
+        };
     });

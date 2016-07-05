@@ -1,4 +1,8 @@
-<div class="row col-md-offset-4"><div class="col-md-6"><input type="text" class="input searchClass" placeholder="Search" ng-model="searchQuery" /></div></div>
+<div class="row col-md-offset-4">
+    <div class="col-md-6">
+        <input type="text" class="input searchClass" placeholder="Search" ng-model="searchQuery" />
+    </div>
+</div>
 <div class="row">
 
     <div class="card col-md-3 mCard" ng-repeat="x in blogData | filter:searchQuery">
@@ -12,7 +16,7 @@
         </div>
 
         <div class="card-block">
-            <a href="#!reviewBlog/{{x.blog_id}}/{{x.blog_title.replace(' ','_');}}"  class="btn btn-primary card-link pull-right" >View Blog</a>
+            <a href="#!reviewBlog/{{x.blog_id}}/{{x.blog_title.replace(' ','_');}}" class="btn btn-primary card-link pull-right">View Blog</a>
         </div>
     </div>
 </div>

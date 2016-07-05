@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col-md-3 dCard">
-       Total Blogs:  {{total_blogs}}
+        Total Blogs: {{total_blogs}}
     </div>
 
     <div class="col-md-3 dCard">
-       Total Published Blogs:  {{total_published_blogs}}
+        Total Published Blogs: {{total_published_blogs}}
     </div>
 
     <div class="col-md-3 dCard">
-        Total Unpublished Blogs:  {{total_unpublished_blogs}}
+        Total Unpublished Blogs: {{total_unpublished_blogs}}
     </div>
 
     <div ng-if="isAdmin()" class="col-md-3 dCard">
@@ -16,7 +16,7 @@
     </div>
 
 
-    <div  ng-if="isAdmin()==true" class="col-md-3 dCard">
+    <div ng-if="isAdmin()==true" class="col-md-3 dCard">
         Total Active Users: {{total_active_users}}
     </div>
 
@@ -25,5 +25,3 @@
         Total Restricted Users: {{total_inactive_users}}
     </div>
 </div>
-
-

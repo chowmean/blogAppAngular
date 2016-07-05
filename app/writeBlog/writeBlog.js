@@ -17,7 +17,7 @@ angular.module('myApp.writeBlog', ['ngRoute'])
             $window.location.href='#';
         }
         else {
-            console.log('asdsadas');
+
         }
 
         if($window.localStorage.getItem('role')=='admin')
@@ -38,7 +38,7 @@ angular.module('myApp.writeBlog', ['ngRoute'])
         })
             .error( function( data)
             {
-                console.log('Error loading categories');
+              $scope.categories={};
             });
 
 
@@ -56,8 +56,7 @@ angular.module('myApp.writeBlog', ['ngRoute'])
             }
             ).success( function( data )
             {
-                console.log(data.blog_id);
-                console.log('blog created');
+
                 var formData = new FormData();
                 formData.append('blogImage', $('input[type=file]')[0].files[0]);
                 $.ajax({
@@ -84,7 +83,7 @@ angular.module('myApp.writeBlog', ['ngRoute'])
                 {
                     toastr.error('Please fill all the details. If thats not the problem server may be down', 'Error');
                 });
-        }
+        };
 
-        
+
     });

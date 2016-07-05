@@ -11,7 +11,7 @@ angular.module('myApp.reviewBlog', ['ngRoute'])
 
     .controller('reviewBlogCtrl',function($http,$scope,$window,$routeParams,toastr) {
 
-        
+
         $scope.url='http://54.191.251.207:8085/';
         $scope.blogId=$routeParams.blogID;
 
@@ -25,8 +25,8 @@ angular.module('myApp.reviewBlog', ['ngRoute'])
             $scope.blogData=data;
         }).error( function( data)
         {
-            console.log('error');
-        });}
+        });
+      };
 
         $scope.getBlog();
 
@@ -37,11 +37,10 @@ angular.module('myApp.reviewBlog', ['ngRoute'])
                 return true;}
             else{
                 return false;}
-        }
+        };
 
         $scope.publish=function()
         {
-        console.log($scope.blogId);
             $http({
                 method: 'POST',
                 url: baseUrl + '/blogs/publish/'+$scope.blogId,
@@ -53,12 +52,11 @@ angular.module('myApp.reviewBlog', ['ngRoute'])
 
             }).error(function(data){
                 toastr.error('Error publishing', 'Publish');
-            })
-        }
+            });
+        };
 
         $scope.rejectBlog=function()
         {
-        console.log($scope.blogId);
             $http({
                 method: 'POST',
                 url: baseUrl + '/blogs/depublish/'+$scope.blogId,
@@ -69,7 +67,7 @@ angular.module('myApp.reviewBlog', ['ngRoute'])
                 toastr.info('Successfully depublished', 'Depublish');
             }).error(function(data){
                 toastr.error('Error depublishing', 'Depublish');
-            })
-        }
+            });
+        };
 
     });
